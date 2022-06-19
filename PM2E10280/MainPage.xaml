@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2E10280.MainPage"
+             NavigationPage.HasNavigationBar="False">
+
+
+    <ScrollView>
+        <StackLayout>
+
+            <Grid>
+                <Image Source="logo.png"
+               Aspect="AspectFit"
+               WidthRequest="110"
+               Grid.Row="0"
+               Grid.Column="0"
+               HorizontalOptions="End"
+               />
+
+                <Label Text="SITE VISITOR APP"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"
+                   />
+
+            </Grid>
+
+            <StackLayout>
+                <Label Text="IMAGEN SITIO VISITADO"
+                   HorizontalOptions="Center"
+                   />
+
+                <Image x:Name="imgFoto"
+                       Source="imgMuestra.png"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center" 
+                       WidthRequest="300"
+                       HeightRequest="220"
+                       >
+
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                              NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                    
+                </Image>
+            </StackLayout>
+
+            <Label Text="Latitude:" 
+               Margin="30,30,0,0"
+               HorizontalOptions="StartAndExpand" 
+               FontSize="20"/>
+
+            <Entry x:Name="txtLatitude"
+                   Keyboard="Numeric"
+                   Placeholder="Ejemplo: 15.67"
+                   HorizontalOptions="FillAndExpand" 
+                   Margin="30,0,30,0"
+                   IsEnabled="False"
+                   />
+
+            <Label Text="Longitud:" 
+               Margin="30,30,0,0"
+               HorizontalOptions="StartAndExpand" 
+               FontSize="20"/>
+
+            <Entry x:Name="txtLongitude"
+                   Keyboard="Numeric"
+                   Placeholder="Ejemplo: -81.78"
+                   HorizontalOptions="FillAndExpand" 
+                   Margin="30,0,30,0"
+                   IsEnabled="False"
+                   />
+
+            <Label Text="Descripcion:" 
+               Margin="30,30,0,0"
+               HorizontalOptions="StartAndExpand" 
+               FontSize="20"/>
+
+            <Editor x:Name="txtDescription"
+                    Keyboard="Text"
+                    AutoSize="TextChanges"
+                    MaxLength="50"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="30,0,30,0"
+                    Placeholder="Lancetilla Tela, Atlantida"
+                    />
+
+            
+                <Grid Margin="20,30,30,0">
+                    <Button x:Name="btnAdd"
+                            Text="Agregar"
+                            HorizontalOptions="FillAndExpand"
+                            Grid.Column="0"
+                            Clicked="btnAdd_Clicked"
+                            />
+
+                    <Button x:Name="btnList"
+                            Text="Lista Sitios"
+                            HorizontalOptions="FillAndExpand"
+                            Grid.Column="1"
+                            Clicked="btnList_Clicked"
+                            />
+                </Grid>
+
+
+                <Button x:Name="btnExit"
+                        Text="Salir de la app"
+                        HorizontalOptions="Center"
+                        Margin="10,0,0,20"
+                        Grid.Column="1"
+                        Clicked="btnExit_Clicked"
+                        />
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
