@@ -88,7 +88,7 @@ namespace PM2E10280
         {
             if (FileFoto == null)
             {
-                Message("Aviso", "Aun no se a tomado una foto: Precione la imagen de ejemplo para capturar una imagen");
+                Message("Aviso", "Aun no se a tomado una foto: Presione la imagen de ejemplo para capturar una imagen");
                 return;
             }
 
@@ -171,7 +171,20 @@ namespace PM2E10280
             }
             catch (Exception e)
             {
-                Message("Error", e.Message);
+                
+
+
+                if (e.Message.Equals("Location services are not enabled on device."))
+                {
+
+                    Message("Error", "Servicio de localizacion no encendido");
+                }
+                else
+                {
+                    Message("Error", e.Message);
+
+                }
+
             }
         }
 

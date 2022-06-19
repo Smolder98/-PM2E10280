@@ -64,13 +64,21 @@ namespace PM2E10280.Views
                 }
                 else
                 {
-                    await DisplayAlert("Aviso", "Active el GPS para el correcto funcionamiento de la aplicación.", "Ok");
                     await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
                 }
             }
             catch (Exception e)
             {
-                Message("Error", e.Message);
+                if (e.Message.Equals("Location services are not enabled on device."))
+                {
+
+                    Message("Error", "Servicio de localizacion no encendido");
+                }
+                else
+                {
+                    Message("Error", e.Message);
+
+                }
             }
 
         }
