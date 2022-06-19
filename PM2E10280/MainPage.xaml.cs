@@ -101,7 +101,7 @@ namespace PM2E10280
             }
 
 
-            if (string.IsNullOrEmpty(txtDescription.Text.Trim()))
+            if (string.IsNullOrEmpty(txtDescription.Text))
             {
                 Message("Aviso", "Debe escribir una breve descripcion");
                 return;
