@@ -1,7 +1,6 @@
 ﻿using Plugin.Media;
 using Plugin.Media.Abstractions;
 using PM2E10280.Models;
-using PM2E10280.Services;
 using PM2E10280.Views;
 using System;
 using System.Collections.Generic;
@@ -157,19 +156,7 @@ namespace PM2E10280
 
                 if (status == PermissionStatus.Granted)
                 {
-                    var gpsStatus = DependencyService.Get<ILocSettings>().isGpsAvailable();
-
-                    if (!gpsStatus)
-                    {
-                        Message("Aviso", "Su gps no esta activo: por favor activelo");
-
-                        //Una espera para que se pueda leer el mensaje 
-                        await Task.Delay(4000);
-
-                        DependencyService.Get<ILocSettings>().OpenSettings();
-                        return;
-                    }
-
+                    
                     var localizacion = await Geolocation.GetLocationAsync();
 
                     txtLatitude.Text = Math.Round(localizacion.Latitude, 5) + "";
@@ -178,6 +165,7 @@ namespace PM2E10280
                 }
                 else
                 {
+                    await DisplayAlert("Aviso", "Active el GPS para el correcto funcionamiento de la aplicación.", "Ok");
                     await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
                 }
             }
