@@ -165,7 +165,7 @@ namespace PM2E10280
                 }
                 else
                 {
-                    await DisplayAlert("Aviso", "Active el GPS para el correcto funcionamiento de la aplicación.", "Ok");
+                    
                     await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
                 }
             }

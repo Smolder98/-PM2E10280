@@ -85,8 +85,8 @@ namespace PM2E10280.Views
                 //"/storage/emulated/0/Android/data/com.companyname.pm2e10280/files/Pictures/MisUbicaciones/IMG_2022061…"
                 //folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), Sitio.nameImage);
                 
-                if(!File.Exists(Path.GetFileName(Sitio.pathImage)))
-                    File.WriteAllBytes(Sitio.pathImage, Sitio.image);
+               // if(!File.Exists(Path.GetFileName(Sitio.pathImage)))
+                 //   File.WriteAllBytes(Sitio.pathImage, Sitio.image);
 
                 var image = new ShareFile(Sitio.pathImage);
 
